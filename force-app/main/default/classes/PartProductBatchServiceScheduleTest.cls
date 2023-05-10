@@ -76,9 +76,9 @@ public class PartProductBatchServiceScheduleTest {
             sa.execute(null);
                        
             System.Test.stopTest();
-            List<compliancequest__SQX_Part__c> part = [SELECT Id, Name, compliancequest_SQX_Product__c FROM compliancequest__SQX_Part__c WHERE compliancequest_SQX_Product__c= null];
+            compliancequest__SQX_Part__c part = [SELECT Id, Name, compliancequest_SQX_Product__c FROM compliancequest__SQX_Part__c WHERE Id =: partOne.Id ];
             System.debug('part: ' + part);
-            System.assert(part.size() == 0); 
+            System.assert(part.compliancequest_SQX_Product__c != null); 
         }
     }
    
